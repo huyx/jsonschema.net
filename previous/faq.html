@@ -1,0 +1,137 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <title>JSON schema generator</title>
+  <meta name="description" content="JSON schema generator" />
+  <meta content="JSON, schema, generate, json schema" name="keywords" />
+  <meta name="robots" content="index, follow" />
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+
+
+  <link href='http://fonts.googleapis.com/css?family=Marmelad' rel='stylesheet' type='text/css' />
+  <link rel="stylesheet" type="text/css" href="css/stylecalm.css" />
+  <link rel="stylesheet" type="text/css" href="css/schemacalm.css" />
+  
+  <!-- Third-Party Libraries (Order matters) -->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
+  <script type="text/javascript" src="js/underscore.js"></script>
+  <script type="text/javascript" src="js/backbone.js"></script>
+  
+  <!-- Application code (Order matters) -->
+  <script type="text/javascript" src="js/schema.js"></script>
+  <script type="text/javascript" src="js/models.js"></script>
+  <script type="text/javascript" src="js/interactiveviews.js"></script>
+  <script type="text/javascript" src="js/staticviews.js"></script>
+  <script type="text/javascript" src="js/stringviews.js"></script>
+  
+  <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-30572767-1']);
+  _gaq.push(['_trackPageview']);
+
+  _gaq.push(['b._setAccount', 'UA-31011592-1']);
+  _gaq.push(['b._trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</head>
+
+<body>
+
+
+<div id="container">
+
+ <div id="header">
+    <h1>
+      <a href="index.html" title="JSON Schema.net">JSON Schema.net</a> 
+      <span>alpha</span>
+    </h1>
+    
+    <div id="navigation">
+      <ul>
+        <li><a href="index.html" title="Home">Home</a></li>
+        <li><a class="selected" href="faq.html" title="FAQs">FAQs</a></li>
+        <li><a href="contact.html" title="Contact">Contact</a></li>
+        <li><a href="examples.html" title="Examples">Examples</a></li>
+      </ul>
+    </div>
+    <div class="spacer" style="clear: both;"></div>
+  </div>
+
+    <div id="splitterContainer">
+
+      <div id="mainleft">
+
+        <dl>
+
+     <dt><a name="What">What is JsonSchema.net?</a></dt>
+     <dd>JsonSchema.net is a tool that automatically generates JSON schema from JSON. Schema is generated according to the IETF <a href="http://tools.ietf.org/html/draft-zyp-json-schema-03">JSON Schema Internet Draft</a>. The tool is comprised of five main features:
+
+      <ol>
+        <li>Accepts as input JSON and automatically generates JSON schema describing the input. </li>
+        <li>Provides a GUI to modify the schema generated with useful additional information defined in the <a href="http://tools.ietf.org/html/draft-zyp-json-schema-03">JSON Schema Internet Draft</a>.</li>
+        <li>Provides a GUI to modify the structure of a JSON schema.</li>
+        <li>Accepts as input a JSON schema providing a friendly GUI for editing.</li>
+        <li>Renders a schema as a single string value, or formatted text - both of which can be easily copied from the application.</li>
+      </ol>
+      </dd>
+
+      <dt><a name="Scope">Not all of the schema options are available. Why?</a></dt>
+     <dd>Once the tool is out of alpha, and users are happy with the stability of the tool, then  implementation of the JSON schema draft will be expanded.</dd>
+
+     <dt><a name="How">How do I use JsonSchema.net?</a></dt>
+     <dd>The best way to get started is to use play around with the default JSON schema generated automatically on the <a href="index.html" title="Home">home page</a>.</dd>
+
+    <dt><a name="Bugs">Help, it's broken, what can I do?</a></dt>
+    <dd>Please report all bugs, recommendations or ideas to <a href="mailto:info@jsonschema.net">info@jsonschema.net</a>.</dd>
+
+    <dt><a name="Secure">How secure is my data?</a></dt>
+    <dd>Since the applicaiton is written in JavaScript, your JSON never leaves the browser and is never stored anywhere other than in the browser. The only exception is where remote schema references must be resolved.</dd>
+
+    <dt><a name="Language">What language is the application written in?</a></dt>
+    <dd>Mainly JavaScript and a sprinkling of PHP to resolve remote references.</dd>
+
+    <dt><a name="Browser">Which browsers are supported?</a></dt>
+    <dd>Browsers that support ECMAScript 5th Edition - broadly speaking that encompasses recent versions of Firefox, Google Chrome, Safari and Internet Explorer 9.
+</dl>
+
+        <div class="spacer" style="clear: both;"></div>
+      </div>
+
+      <div id="mainright">
+        <ul id="Questions">
+          <li><a href="#What">What is JsonSchema.net?</a></li>
+          <li><a href="#Scope">Not all of the schema options are available. Why?</a></li>
+          <li><a href="#How">How do I use JsonSchema.net?</a></li>
+          <li><a href="#Bugs">It isn't working, what can I do?</a></li>
+          <li><a href="#Secure">How secure is my data?</a></li>
+          <li><a href="#Language">What language is the application written in?</a></li>
+          <li><a href="#Browser">Which browsers are supported?</a></li>
+        </ul>
+
+      </div>
+
+       <div class="spacer" style="clear: both;"></div>
+    </div>
+
+
+    <div id="footer">
+    <p class="footernav"><a href="index.html" title="Home">Home</a> |
+    FAQs |
+    <a href="contact.html" title="Contact">Contact</a> | 
+    <a href="examples.html" title="Examples">Examples</a>
+    </p>
+    <p>Copyright © <a href="#" title="JSON Schem.net">www.jsonschema.net</a>, 2012</p>
+  </div>
+
+
+  </div>
+</body>
+</html>

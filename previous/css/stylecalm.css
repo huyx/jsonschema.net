@@ -1,0 +1,362 @@
+html, body {
+  margin:0;
+  padding:0;
+  height:100%; /* needed for container min-height */
+  background: #fff;
+}
+
+a, a:hover { 
+  outline: none;
+  text-decoration: underline;
+  color: #11877A;
+}
+
+a:hover { 
+  text-decoration: none;
+}
+
+div#container {
+  position:relative; /* needed for footer positioning*/
+  margin:0 auto; /* center, not in IE5 */
+  width:96%;
+  height:auto !important; /* real browsers */
+  height:100%; /* IE6: treaded as min-height*/
+  min-height:100%; /* real browsers */
+  overflow:hidden;
+}
+
+div#header {
+  font-family: 'Marmelad', sans-serif;
+  background: #F1F1F1;
+  margin:0 0 20px 0;
+  padding:0;
+}
+
+div#header img {
+  float:right;
+  display:inline;
+  padding:5px;
+}
+
+div#header h1 {
+  padding:15px;
+  margin:0;
+  letter-spacing:-3px;
+  float:left;
+}
+
+div#header h1 a,
+div#header h1 a:hover {
+  color: #444;
+  text-decoration: none;
+}
+
+div#header h1 span {
+  color: #444;
+  font-size:12px;
+  letter-spacing:-1px;
+  font-weight:normal;
+}
+
+div#splitterContainer {
+  height:100%;
+  /* bottom padding for footer. 5 x size of current font */
+  padding:0 0 5em 0;
+}
+
+div#mainleft {
+  clear: left;
+  float: left;
+  padding: 0;
+  margin: 0;
+  display: inline;
+  width:50%;
+}
+
+div#mainright {
+  margin:0;
+  padding: 0;
+  width:48%;
+  float:right;
+  display: inline;
+  position:relative;
+}
+
+div#mainleft p {
+  font-family: 'Marmelad', sans-serif;
+}
+
+div#footer {
+  position:absolute;
+  width:100%;
+  bottom:0; /* stick to bottom */
+  background:#ccc;
+  border-bottom:solid 4px #333;
+  font-family: 'Marmelad', sans-serif;
+}
+
+div#footer p {
+  padding:0px;
+  float:right;
+  margin-right:20px;
+}
+
+div#footer p.footernav {
+  padding:0px;
+  float:left;
+  margin-left:20px;
+}
+
+div#Edit {
+  padding:0;
+  margin:0;
+  font-family:sans-serif;
+  font-size:12px;
+  clear:both;
+}
+
+div#Review {
+  padding:0;
+  margin:0;
+  display:hidden;
+  clear:both;
+}
+
+div#Error {
+  display:none;
+  clear:both;
+  font-family: 'Marmelad', sans-serif;
+  padding:5px 5px 10px 5px;
+  font-size:12px;
+}
+
+div#Reqview textarea {
+  font-family: 'Courier New', Courier, monospace;
+}
+
+div#String {
+  padding:5px 0 0 0;
+  margin:0;
+  display:hidden;
+  font-family: 'Marmelad', sans-serif;
+  font-size:12px;
+  color:#333;
+  clear:both;
+}
+
+#Toolbar {
+  font-family: 'Marmelad', sans-serif;
+  float:right;
+  width: 100%;
+  background: #808080;
+  clear:both;
+  border-bottom:solid 3px #34CFBE;
+  font-size:14px;
+  margin:0 0 2px 0;
+}
+
+#Toolbar ul {
+  margin: 0;
+  padding: 0;
+}
+
+#Toolbar ul li {
+  background:#FF9B5C;
+  list-style-type: none;
+  display: inline;
+}
+
+#Toolbar li a
+{
+  display: block;
+  float: right;
+  padding: 2px 18px 2px 18px;
+  color: #fff;
+  text-decoration: none;
+  border-left: 1px solid #fff;
+  background: #808080;
+}
+
+#Toolbar li a.selected,
+#Toolbar li a:hover { 
+  background: #34CFBE; 
+}
+
+#Toolbar li a.collapsed,
+#Toolbar li a.expanded {
+  font-family: 'Courier New', Courier, monospace;
+  padding: 2px 9px 2px 9px;
+}
+
+#Toolbar li a.collapsed:before {
+     content: ">";
+}
+
+#Toolbar li a.expanded:before {
+     content: "<";
+}
+
+#Toolbar a#ClearButton,
+#Toolbar a#RedrawButton {
+  float:left;
+  border-left:0;
+  border-right: 1px solid #fff;
+}
+
+#navigation {
+  float: left;
+  width: 100%;
+  background: #333;
+  border-bottom:solid 4px #34CFBE;
+}
+
+#navigation ul {
+  margin: 0;
+  padding: 0;
+}
+
+#navigation ul li {
+  list-style-type: none;
+  display: inline;
+}
+
+#navigation li a {
+  display: block;
+  float: left;
+  padding: 5px 10px;
+  color: #fff;
+  text-decoration: none;
+  border-right: 1px solid #fff;
+  background: #333;
+}
+
+#navigation li a:hover,
+#navigation li a.selected { 
+  background: #34CFBE; 
+}
+
+div#examplesright,
+div#examplesleft
+{
+  width: 46%;
+  padding: 0;
+  margin: 0;
+  display: inline;
+}
+
+div#examplesleft {
+   clear: left;
+   float: left;
+}
+
+div#examplesright
+{
+  float: right;
+}
+
+div#examplesright h2,
+div#examplesleft h2 {
+    font-family: 'Marmelad', sans-serif;
+}
+
+div#examplesright pre,
+div#examplesleft pre {
+  font-family: 'Marmelad', sans-serif;
+  font-size:12px;
+}
+
+form#Output textarea,
+form#Input textarea {
+  width:100%;
+  font-size:12px;
+  margin:0;
+  padding:0;
+  border:0;
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+  box-sizing: border-box;         /* Opera/IE 8+ */
+}
+
+form#Output fieldset,
+form#Input fieldset {
+  margin:0;
+  padding:10px;
+  border: 1px solid #BFBFBF;
+  height:100%;
+  font-family: 'Marmelad', sans-serif;
+}
+
+form#Output legend,
+form#Input legend {
+  font-size:90%;
+  padding: 0 2px;
+  color:#919090;
+  margin:0;
+  height:100%;
+}
+
+form#Input input.InputButton {
+  padding:5px;
+  border: 1px solid #9C9C9C;
+  float:left;
+  margin: 5px 5px 2px 0px;
+  font-family: 'Marmelad', sans-serif;
+}
+
+form#Input input.InputButton:hover {
+  cursor:pointer;
+  color:#fff;
+  background:#34CFBE;
+}
+
+form#Input span.JsonOptionsWrapper,
+form#Input span.SchemaOptionsWrapper,
+form#Input span.RadioWrapper {
+  margin:3px 30px 3px 0;
+}
+
+form#Input span.SchemaOptionsWrapper {
+  display:none;
+}
+
+dt {
+     font-weight: bold; 
+     margin: 5px 50px 5px;
+     font-family: 'Marmelad', sans-serif;
+}
+
+dt:before {
+     content: "Q";
+     margin-right: 7px;
+     padding: 2px 5px 2px 5px;
+     color: #fff;
+     background-color: #333;
+     font-weight: normal;
+     margin-left: -47px;
+     position: relative;
+}
+ 
+dd {
+     margin: 10px 50px 25px;
+     border-bottom: 1px solid #ccc;
+     padding-bottom: 20px;
+     line-height: 150%;
+     font-family: 'Marmelad', sans-serif;
+}
+
+dd:before {
+     content: "A";
+     margin-right: 7px;
+     padding: 2px 5px 2px 5px;
+     color: #333;
+     background-color: #CCC;
+     font-weight: normal;
+     margin-left: -47px;
+     position: relative;
+}
+
+ul#Questions {
+  font-family: 'Marmelad', sans-serif;
+  list-style:none;
+  margin-bottom:50px
+}

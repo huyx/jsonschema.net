@@ -1,0 +1,293 @@
+
+div.SchemaPairView {
+    padding:1px 15px 1px 5px;
+    cursor:pointer;
+    margin:0;
+    color:#8F8F8F;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    /* Breaks Firefox, but solves for Menu buttons collapsing in Chrome. */
+    /* overflow: auto; */
+}
+
+div.SchemaPairViewHover {
+    background-color:#CCC;
+    color:#000;
+}
+
+
+div.SchemaPairViewEdit {
+    background-color:#34CFBE;
+}
+
+div.Key {
+  display:none;
+  margin:0;
+  float: left;
+  font-weight:bold;
+}
+
+div.Menu {
+  visibility:hidden;
+  float:right;
+  margin: 5px 0px 5px 5px;
+  font-weight:bold;
+}
+
+div.Schema {
+  margin:0;
+  padding:0;
+}
+
+/* SchemaView */
+
+ul.SchemaView {
+  padding:0;
+  margin-left:20px;
+}
+
+li.Items, 
+li.Item,
+li.Properties,
+li.SchemaId,
+li.Description,
+li.Types, 
+li.Name, 
+li.Required, 
+li.Minimum, 
+li.Maximum, 
+li.MaxItems,
+li.MinItems,
+li.Title, 
+li.Name, 
+li.DollarSchema,
+li.DollarRef,
+li.Reference,
+li.Extensions,
+li.Schema,
+li.Merge,
+li.DefaultValue
+ {
+  display:none;
+  margin:0;
+  list-style: none;
+  padding: 0;
+}
+
+div.Options{
+  display:none;
+  width:400px;
+  font-size:90%;
+  clear:both;
+}
+
+div.Schemas {
+  padding:0 0 0 15px;
+}
+
+span.OpeningSymbol,
+span.ClosingSymbol,
+span.AttributeDelimiter,
+span.SchemaPairDelimiter {
+  margin:0;
+  padding:0;
+}
+
+/* Menu */
+
+div.Menu span.Remove {
+  background:#FFF;
+  color:#FF6C00;
+  padding:1px 3px 1px 3px;
+  text-align:center;
+  -moz-border-radius: 0.4em;
+  border-radius: 0.4em;
+  cursor:pointer
+}
+
+div.Menu .Remove:hover {
+  background:#FF6C00;
+  color:#FFF;
+}
+
+div.Menu span.AddExtension,
+div.Menu span.AddItem,
+div.Menu span.AddProperty {
+  display:inline;
+  background:#FFF;
+  color:#009E8E;
+  padding:1px 3px 1px 3px;
+  text-align:center;
+  -moz-border-radius: 0.4em;
+  border-radius: 0.4em;
+  cursor:pointer
+}
+
+div.Menu span.AddExtension:hover,
+div.Menu span.AddItem:hover,
+div.Menu span.AddProperty:hover {
+  background:#009E8E;
+  color:#FFF;
+}
+
+span.Collapse,
+span.Expand {
+  display:inline;
+  padding:0px 1px 0px 1px;
+  text-align:center;
+  cursor:pointer;
+  font-weight:bold;
+  float:left;
+}
+
+span.Expand {
+  color:#FF6C00;
+  display:none;
+}
+
+span.Collapse {
+  color:#009E8E;
+}
+
+
+/* Options */
+
+div.Options ol {
+  list-style: none;
+  padding: 0 5px 0 5px;
+  margin: 0;
+}
+
+div.Left {
+  float:left;
+  margin:0;
+  padding:0;
+  width:64%;
+}
+
+div#Reference div.Left,
+div#Extends div.Left {
+  width:100%;
+}
+
+div.Left input.OptExtendsUrl {
+  width:150px;
+}
+
+div.Left textarea.OptExtendsRaw {
+  width:250px;
+  height:80px;
+  border: 1px solid #9C9C9C;
+  font-size:11px;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+div.Right {
+  float:left;
+  margin:0;
+  padding:0;
+  width:36%;
+}
+
+div.Left li {
+  padding: 0;
+  margin:0;
+}
+
+div.Options form {
+  margin:0;
+  padding:0 2px 8px 8px;
+  overflow:auto;
+}
+
+div.Options {
+  margin:0;
+  padding:0;
+  overflow: hidden;
+}
+
+div.Options legend {
+  padding: 0 2px;
+  font-weight: bold;
+}
+
+div.Left label {
+  width:65px;
+  display: inline-block;
+  text-align:right;
+  padding: 0;
+  margin:0;
+}
+
+div.Right label {
+  width:40px;
+  display: inline-block;
+  text-align:right;
+}
+
+div.Options textarea,
+div.Options input {
+  border: 1px solid #9C9C9C;
+  font-size:11px;
+  vertical-align:middle;
+}
+
+
+div.OptType input::after {
+  clear:both;
+}
+
+div.Options input.ItemSpaces,
+div.Options input.Minimum,
+div.Options input.Maximum,
+div.Options input.MinItems,
+div.Options input.MaxItems {
+ width:20px;
+}
+
+
+div.Options input.Name {
+  width:80px;
+}
+
+div.Options input.Key,
+div.Options input.Title,
+div.Options input.SchemaId,
+div.Options input.Description {
+  width:130px;
+}
+
+li.OptError {
+  display:none;
+  background-color:#FF6C00;
+  color:white;
+  border:solid 1px #A64600;
+  margin:2px 0px 0px 65px;
+  padding:2px;
+  font-size:11px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+}
+
+li.OptActions input {
+  padding:2px 4px 2px 4px;
+  margin:10px 0 4px 4px;
+  font-size:11px;
+  float:right;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+}
+
+li.OptType input {
+  margin: 2px 2px 2px 4px;
+}
+
+div.tabs ul li a.TabLink {
+  padding: 2px 4px 2px 4px;
+  font-size:11px;
+}
+
+div.tabs div.ui-tabs-panel {
+  padding:8px 4px 2px 4px;
+  font-size:11px;
+}
