@@ -1,0 +1,254 @@
+<!-- saved from url=(0037)http://jsonschema.net/views/main.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style id="style-1-cropbar-clipper">/* Copyright 2014 Evernote Corporation. All rights reserved. */
+.en-markup-crop-options {
+    top: 18px !important;
+    left: 50% !important;
+    margin-left: -100px !important;
+    width: 200px !important;
+    border: 2px rgba(255,255,255,.38) solid !important;
+    border-radius: 4px !important;
+}
+
+.en-markup-crop-options div div:first-of-type {
+    margin-left: 0px !important;
+}
+</style></head><body><div class="row">
+
+    <div class="col-md-5" ng-controller="InputController">
+
+        <div class="panel panel-info">
+            <div class="panel-heading">JSON</div>
+            <div class="panel-body">
+                <form class="form-horizontal" role="form" ng-submit="schemarize(inputJson, inputUrl)" ng-reset="reset();" id="home">
+                    <div class="form-group">
+                        <label for="url" class="col-sm-2 control-label">URL</label>
+                        <div class="col-sm-10">
+                            <input ng-model="url" type="url" class="form-control" id="url" placeholder="http://jsonschema.net">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="json" class="col-sm-2 control-label">JSON</label>
+                        <div class="col-sm-10">
+                            <textarea ng-change="validateJSON()" ng-model="json" class="form-control" id="json" rows="12" placeholder="{ }"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="json" class="col-sm-2 control-label"></label>
+                        <div class="col-sm-10">
+                            <div ng:show="inputError" class="alert alert-danger" role="alert">
+                                <strong>Oh snap! Change a few things up and try again.</strong>
+                            </div>
+                            <div ng:show="!inputError" class="alert alert-success" role="alert">
+                                <strong>Well done! You provided valid JSON. </strong>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button type="submit" class="btn btn-primary btn-xs">Generate Schema</button>
+                            <button type="button" class="btn btn-default btn-xs" ng-click="init()">Reset</button>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">IDs</label>
+                        <div class="col-sm-10">
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" ng-model="idOptions" name="idOptions" id="absoluteIds" value="absoluteIds" checked="checked">Absolute IDs
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" ng-model="idOptions" name="idOptions" id="relativeIds" value="relativeIds" checked="checked">Relative IDs
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" ng-model="idOptions" name="idOptions" id="noIds" value="noIds" checked="checked">No IDs
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Metadata</label>
+                        <div class="col-sm-10">
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" ng-model="metadataKeywords">Include metadata keywords
+                                    <span class="help-block">
+                                    Title and Description.</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">General</label>
+                        <div class="col-sm-10">
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" ng-model="includeDefaults">Include default values
+                                    <span class="help-block">
+                                    Values are taken from JSON.</span>
+                                </label>
+                            </div>
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" ng-model="includeEnums">Restrict values to enum
+                                    <span class="help-block">
+                                    Uses the default value and null.</span>
+                                </label>
+                            </div>
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" ng-model="forceRequired">Force required
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Objects</label>
+                        <div class="col-sm-10">
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" ng-model="additionalProperties">Allow additional properties
+                                    <span class="help-block">
+                                    Controls whether it’s valid to have additional properties in the object beyond what is defined in the schema.</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Arrays</label>
+                        <div class="col-sm-10">
+
+                        <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" ng-model="additionalItems">Allow additional items
+                                    <span class="help-block">
+                                    Controls whether it’s valid to have additional items in the array beyond what is defined in the schema.</span>
+                                </label>
+                            </div>
+
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" ng-model="arrayOptions" name="arrayOptions" id="emptySchema" value="emptySchema" checked="checked">Single empty schema
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" ng-model="arrayOptions" name="arrayOptions" id="singleSchema" value="singleSchema">Single schema (list validation)
+                                    <span class="help-block">All items match the same schema.</span>
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" ng-model="arrayOptions" name="arrayOptions" id="arraySchema" value="schemaArray">Schema array (tuple typing)
+                                    <span class="help-block">Each item matches a different schema and index is meaningful.</span>
+                                </label>
+                            </div>
+
+                            <!--div class="radio">
+                                <label>
+                                    <input type="radio" ng-model="arrayOptions" name="arrayOptions" id="oneOf" value="oneOf">One of
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" ng-model="arrayOptions" name="arrayOptions" id="anyOf" value="anyOf">Any of
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" ng-model="arrayOptions" name="arrayOptions" id="anyOf" value="allOf">All of
+                                </label>
+                            </div-->
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Verboseness</label>
+                        <div class="col-sm-10">
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" ng-model="numericVerbose">Make numeric instances verbose
+                                </label>
+                            </div>
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" ng-model="stringsVerbose">Make strings verbose
+                                </label>
+                            </div>
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" ng-model="objectsVerbose">Make objects verbose
+                                </label>
+                            </div>
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" ng-model="arraysVerbose">Make arrays verbose
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+
+
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-7" ng-controller="OutputController">
+
+        <div class="panel panel-success">
+            <div class="panel-heading">Schema</div>
+            <div class="panel-body">
+            <div class="alert alert-warning" role="alert">
+                <strong>Edit view has been disabled while bugs are fixed. Code and String views work as normal. 
+                <br>
+                Thank you for your patience. </strong>
+            </div>
+
+
+                <div class="btn-group btn-toggle">
+                    <button href="" ng:click="setCodeView()" class="btn btn-xs" ng-class="{&#39;btn-primary active&#39;:codeSchema, &#39;btn-default&#39;:!codeSchema}">Code View</button>
+
+                    <button href="" ng:click="setEditView()" class="btn btn-xs disabled" ng-class="{&#39;btn-primary&#39;:editSchema, &#39;btn-default&#39;:!editSchema}">Edit View</button>
+
+                    <button href="" ng:click="setStringView()" class="btn btn-xs" ng-class="{&#39;btn-primary&#39;:stringSchema, &#39;btn-default&#39;:!stringSchema}">String View</button>
+                </div>
+
+                <br>
+                <br>
+                <div ng:show="editSchema">
+                    <div ng-controller="EditController">
+                        <schema class="rootSchema" data="data"></schema>
+                    </div>
+                </div>
+                <div ng:show="codeSchema">
+                    <div ng-controller="CodeController">
+                        <pre>{{data}}</pre>
+                    </div>
+                </div>
+                <div ng:show="stringSchema">
+                    <div ng-controller="StringController">
+                        <pre>{{data}}</pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a ng-click="gotoTop()" class="btn btn-default btn-xs pull-right" role="button">Go to top</a>
+    </div>
+
+</div><audio controls="controls" style="display: none;"></audio></body><style type="text/css">#yddContainer{display:block;font-family:Microsoft YaHei;position:relative;width:100%;height:100%;top:-4px;left:-4px;font-size:12px;border:1px solid}#yddTop{display:block;height:22px}#yddTopBorderlr{display:block;position:static;height:17px;padding:2px 28px;line-height:17px;font-size:12px;color:#5079bb;font-weight:bold;border-style:none solid;border-width:1px}#yddTopBorderlr .ydd-sp{position:absolute;top:2px;height:0;overflow:hidden}.ydd-icon{left:5px;width:17px;padding:0px 0px 0px 0px;padding-top:17px;background-position:-16px -44px}.ydd-close{right:5px;width:16px;padding-top:16px;background-position:left -44px}#yddKeyTitle{float:left;text-decoration:none}#yddMiddle{display:block;margin-bottom:10px}.ydd-tabs{display:block;margin:5px 0;padding:0 5px;height:18px;border-bottom:1px solid}.ydd-tab{display:block;float:left;height:18px;margin:0 5px -1px 0;padding:0 4px;line-height:18px;border:1px solid;border-bottom:none}.ydd-trans-container{display:block;line-height:160%}.ydd-trans-container a{text-decoration:none;}#yddBottom{position:absolute;bottom:0;left:0;width:100%;height:22px;line-height:22px;overflow:hidden;background-position:left -22px}.ydd-padding010{padding:0 10px}#yddWrapper{color:#252525;z-index:10001;background:url(chrome-extension://eopjamdnofihpioajgfdikhhbobonhbb/ab20.png);}#yddContainer{background:#fff;border-color:#4b7598}#yddTopBorderlr{border-color:#f0f8fc}#yddWrapper .ydd-sp{background-image:url(chrome-extension://eopjamdnofihpioajgfdikhhbobonhbb/ydd-sprite.png)}#yddWrapper a,#yddWrapper a:hover,#yddWrapper a:visited{color:#50799b}#yddWrapper .ydd-tabs{color:#959595}.ydd-tabs,.ydd-tab{background:#fff;border-color:#d5e7f3}#yddBottom{color:#363636}#yddWrapper{min-width:250px;max-width:400px;}</style></html>

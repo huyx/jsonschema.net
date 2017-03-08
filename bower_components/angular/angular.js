@@ -1,4 +1,3 @@
-8000
 /**
  * @license AngularJS v1.4.8
  * (c) 2010-2015 Google, Inc. http://angularjs.org
@@ -1177,9 +1176,7 @@ function sliceArgs(args, startIndex) {
 /* jshint -W101 */
 /**
  * @ngdoc function
- * @name angular.bin
-8000
-d
+ * @name angular.bind
  * @module ng
  * @kind function
  *
@@ -2164,9 +2161,7 @@ function setupModuleLoader(window) {
            *
            * <div class="alert alert-warning">
            * **Note:** Filter names must be valid angular {@link expression} identifiers, such as `uppercase` or `orderBy`.
-           * Names 
-8000
-with special characters, such as hyphens and dots, are not allowed. If you wish to namespace
+           * Names with special characters, such as hyphens and dots, are not allowed. If you wish to namespace
            * your filters, then you can use capitalization (`myappSubsectionFilterx`) or underscores
            * (`myapp_subsection_filterx`).
            * </div>
@@ -3190,9 +3185,7 @@ forEach({
     } else if (isDefined(value)) {
       element.setAttribute(name, value);
     } else if (element.getAttribute) {
-      // the extra argument "2" is to get the right thing 
-8000
-for a.href in IE, see jQuery code
+      // the extra argument "2" is to get the right thing for a.href in IE, see jQuery code
       // some elements (e.g. Document) don't have get attribute, so return undefined
       var ret = element.getAttribute(name, 2);
       // normalize non-existing attributes to undefined (as jQuery)
@@ -4229,7 +4222,6 @@ function annotate(fn, strictDi, name) {
  * @ngdoc method
  * @name $provide#value
  *
-8000
  @description
  *
  * Register a **value service** with the {@link auto.$injector $injector}, such as a string, a
@@ -5149,9 +5141,7 @@ var $AnimateProvider = ['$provide', function($provide) {
        *     as well as among its children
        * @param {Function} callback the callback function that will be fired when the listener is triggered
        *
-       * The arguments present in 
-8000
-the callback function are:
+       * The arguments present in the callback function are:
        * * `element` - The captured DOM element that the animation was fired on.
        * * `phase` - The phase of the animation. The two possible phases are **start** (when the animation starts) and **close** (when it ends).
        */
@@ -6020,9 +6010,7 @@ function $CacheFactoryProvider() {
          *
          * @description
          * Inserts a named entry into the {@link $cacheFactory.Cache Cache} object to be
-         * retrieved later, and incrementing the size of th
-8000
-e cache if the key was not already
+         * retrieved later, and incrementing the size of the cache if the key was not already
          * present in the cache. If behaving like an LRU cache, it will also remove stale
          * entries from the set.
          *
@@ -6755,9 +6743,7 @@ function $TemplateCacheProvider() {
  *
  * When a directive requests transclusion, the compiler extracts its contents and provides a **transclusion
  * function** to the directive's `link` function and `controller`. This transclusion function is a special
- * **linking function** that will return the compiled contents linked to a new t
-8000
-ransclusion scope.
+ * **linking function** that will return the compiled contents linked to a new transclusion scope.
  *
  * <div class="alert alert-info">
  * If you are just using {@link ngTransclude} then you don't need to worry about this function, since
@@ -7593,9 +7579,7 @@ function $CompileProvider($provide, $$sanitizeUriProvider) {
           parentBoundTranscludeFn = parentBoundTranscludeFn.$$boundTransclude;
         }
 
-     
-8000
-   if (!namespace) {
+        if (!namespace) {
           namespace = detectNamespaceForChildElements(futureParentElement);
         }
         var $linkNode;
@@ -8344,9 +8328,7 @@ function $CompileProvider($provide, $$sanitizeUriProvider) {
         if (newIsolateScopeDirective && (newIsolateScopeDirective.template || newIsolateScopeDirective.templateUrl === null)) {
           scopeToChild = isolateScope;
         }
-        childLinkFn && childLinkFn(scopeToChild, linkNode.childNodes, undefined, boundTranscludeF
-8000
-n);
+        childLinkFn && childLinkFn(scopeToChild, linkNode.childNodes, undefined, boundTranscludeFn);
 
         // POSTLINKING
         for (i = postLinkFns.length - 1; i >= 0; i--) {
@@ -9193,9 +9175,7 @@ function $ControllerProvider() {
         instance = Object.create(controllerPrototype || null);
 
         if (identifier) {
-          addIdentifier(locals, id
-8000
-entifier, instance, constructor || expression.name);
+          addIdentifier(locals, identifier, instance, constructor || expression.name);
         }
 
         var instantiate;
@@ -10074,9 +10054,7 @@ function $HttpProvider() {
      * For example if your server needs to return:
      * ```js
      * ['one','two']
-     * ``
-8000
-`
+     * ```
      *
      * which is vulnerable to attack, your server can return:
      * ```js
@@ -11003,9 +10981,7 @@ function $InterpolateProvider() {
      *   var exp = $interpolate('{{greeting}} {{name}}!');
      *   expect(exp(context)).toEqual('Hello !');
      *
-     *   // "allOrNothing" m
-8000
-ode
+     *   // "allOrNothing" mode
      *   exp = $interpolate('{{greeting}} {{name}}!', false, null, true);
      *   expect(exp(context)).toBeUndefined();
      *   context.name = 'Angular';
@@ -11989,9 +11965,7 @@ var locationPrototype = {
    *
    * @param {(string|number)=} hash New hash fragment
    * @return {string} hash
-   
-8000
-*/
+   */
   hash: locationGetterSetter('$$hash', function(hash) {
     return hash !== null ? hash.toString() : '';
   }),
@@ -13013,9 +12987,7 @@ AST.prototype = {
 
   primary: function() {
     var primary;
-    if (th
-8000
-is.expect('(')) {
+    if (this.expect('(')) {
       primary = this.filterChain();
       this.consume(')');
     } else if (this.expect('[')) {
@@ -14033,9 +14005,7 @@ ASTInterpreter.prototype = {
     };
   },
   'binary+': function(left, right, context) {
-  
-8000
-  return function(scope, locals, assign, inputs) {
+    return function(scope, locals, assign, inputs) {
       var lhs = left(scope, locals, assign, inputs);
       var rhs = right(scope, locals, assign, inputs);
       var arg = plusFn(lhs, rhs);
@@ -14937,9 +14907,7 @@ function qFactory(nextTick, exceptionHandler) {
    *     // error: handle the error if possible and
    *     //        resolve promiseB with newPromiseOrValue,
    *     //        otherwise forward the rejection to promiseB
-   *     
-8000
-if (canHandle(reason)) {
+   *     if (canHandle(reason)) {
    *      // handle the error and recover
    *      return newPromiseOrValue;
    *     }
@@ -15812,9 +15780,7 @@ function $RootScopeProvider() {
                 if (hasOwnProperty.call(newValue, key)) {
                   veryOldValue[key] = newValue[key];
                 }
-   
-8000
-           }
+              }
             }
           }
         }
@@ -16664,9 +16630,7 @@ function adjustMatchers(matchers) {
  * $sceDelegate} service.  This allows one to get/set the whitelists and blacklists used to ensure
  * that the URLs used for sourcing Angular templates are safe.  Refer {@link
  * ng.$sceDelegateProvider#resourceUrlWhitelist $sceDelegateProvider.resourceUrlWhitelist} and
- * {@link ng.$sceDelegateProvider#resourceUrlBlacklist $sceDelegate
-8000
-Provider.resourceUrlBlacklist}
+ * {@link ng.$sceDelegateProvider#resourceUrlBlacklist $sceDelegate Provider.resourceUrlBlacklist}
  *
  * For the general details about this service in Angular, read the main page for {@link ng.$sce
  * Strict Contextual Escaping (SCE)}.
@@ -17389,9 +17353,7 @@ function $SceProvider() {
      *     {@link ng.$sceDelegate#trustAs `$sceDelegate.trustAs($sce.HTML, value)`}
      *
      * @param {*} value The value to trustAs.
-     * @returns {*} An object that can be passed to {@lin
-8000
-k ng.$sce#getTrustedHtml
+     * @returns {*} An object that can be passed to {@link ng.$sce#getTrustedHtml
      *     $sce.getTrustedHtml(value)} to obtain the original value.  (privileged directives
      *     only accept expressions that are either literal constants or are the
      *     return value of {@link ng.$sce#trustAs $sce.trustAs}.)
@@ -18287,9 +18249,7 @@ function $$CookieReaderProvider() {
      <file name="script.js">
       angular.module('filterExample', [])
       .controller('MainCtrl', function($scope, $filter) {
-        $scop
-8000
-e.originalText = 'hello';
+        $scope.originalText = 'hello';
         $scope.filteredText = $filter('uppercase')($scope.originalText);
       });
      </file>
@@ -19201,9 +19161,7 @@ var uppercaseFilter = valueFn(uppercase);
  *
  * @description
  * Creates a new array or string containing only a specified number of elements. The elements
- * are taken from either the beginning or the end of the source array, string or number, 
-8000
-as specified by
+ * are taken from either the beginning or the end of the source array, string or number, as specified by
  * the value and sign (positive or negative) of `limit`. If a number is used as input, it is
  * converted to a string.
  *
@@ -20068,9 +20026,7 @@ forEach(ALIASED_ATTR, function(htmlAttr, ngAttr) {
 
 // ng-src, ng-srcset, ng-href are interpolated
 forEach(['src', 'srcset', 'href'], function(attrName) {
-  var normalized = dire
-8000
-ctiveNormalize('ng-' + attrName);
+  var normalized = directiveNormalize('ng-' + attrName);
   ngAttributeAliasDirectives[normalized] = function() {
     return {
       priority: 99, // it needs to run after the attributes are interpolated
@@ -20889,9 +20845,7 @@ var inputType = {
     * @description
     * Input with datetime validation and transformation. In browsers that do not yet support
     * the HTML5 date input, a text element will be used. In that case, the text must be entered in a valid ISO-8601
-    * local datetime
-8000
- format (yyyy-MM-ddTHH:mm:ss), for example: `2010-12-28T14:57:00`.
+    * local datetime format (yyyy-MM-ddTHH:mm:ss), for example: `2010-12-28T14:57:00`.
     *
     * The model must always be a Date object, otherwise Angular will throw an error.
     * Invalid `Date` objects (dates whose `getTime()` is `NaN`) will be rendered as an empty string.
@@ -21529,9 +21483,7 @@ var inputType = {
    * @param {string=} ngRequired Adds `required` attribute and `required` validation constraint to
    *    the element when the ngRequired expression evaluates to true. Use `ngRequired` instead of
    *    `required` when you want to data-bind to the `required` attribute.
-   * @param {number=} ngMinlengt
-8000
-h Sets `minlength` validation error key if the value is shorter than
+   * @param {number=} ngMinlength Sets `minlength` validation error key if the value is shorter than
    *    minlength.
    * @param {number=} ngMaxlength Sets `maxlength` validation error key if the value is longer than
    *    maxlength. Setting the attribute to a negative or non-numeric value, allows view values of
@@ -22399,9 +22351,7 @@ var CONSTANT_VALUE_REGEXP = /^(true|false|\d+)$/;
         });
         it('should bind the values to the inputs', function() {
           element.all(by.model('my.favorite')).get(0).click();
-      
-8000
-    expect(favorite.getText()).toContain('pizza');
+          expect(favorite.getText()).toContain('pizza');
         });
       </file>
     </example>
@@ -23287,9 +23237,7 @@ var ngCloakDirective = ngDirective({
  *           .toBe('408 555 1212');
  *
  *       expect(secondRepeat.element(by.model('contact.value')).getAttribute('value'))
- *           
-8000
-.toBe('john.smith@example.org');
+ *           .toBe('john.smith@example.org');
  *
  *       firstRepeat.element(by.buttonText('clear')).click();
  *
@@ -24256,9 +24204,7 @@ var ngIfDirective = ['$animate', function($animate) {
  *
  *                  - If the attribute is not set, disable scrolling.
  *                  - If the attribute is set without value, enable scrolling.
- *                  - Otherwise enable scrolling only if the expres
-8000
-sion evaluates to truthy value.
+ *                  - Otherwise enable scrolling only if the expression evaluates to truthy value.
  *
  * @example
   <example module="includeExample" deps="angular-animate.js" animations="true">
@@ -25119,8 +25065,6 @@ var NgModelController = ['$scope', '$exceptionHandler', '$attrs', '$element', '$
 
   /**
    * @ngdoc method
-
-8000
    * @name ngModel.NgModelController#$setTouched
    *
    * @description
@@ -25947,9 +25891,7 @@ var DEFAULT_REGEXP = /(\s+|^)default(\s+|$)/;
 var ngModelOptionsDirective = function() {
   return {
     restrict: 'A',
-    controller: ['$scope', '$attrs', function($s
-8000
-cope, $attrs) {
+    controller: ['$scope', '$attrs', function($scope, $attrs) {
       var that = this;
       this.$options = copy($scope.$eval($attrs.ngModelOptions));
       // Allow adding/overriding bound events
@@ -26774,9 +26716,7 @@ var ngOptionsDirective = ['$compile', '$parse', function($compile, $parse) {
         var currentElement = selectElement[0].firstChild;
 
         // Ensure that the empty option is always there if it was explicitly provided
-        if (providedEmptyOpti
-8000
-on) {
+        if (providedEmptyOption) {
           selectElement.prepend(emptyOption);
         }
 
@@ -27547,9 +27487,7 @@ var ngRepeatDirective = ['$parse', '$animate', function($parse, $animate) {
             collectionKeys = collection;
             trackByIdFn = trackByIdExpFn || trackByIdArrayFn;
           } else {
-            trackByIdFn = trackByIdExpFn || trackByIdOb
-8000
-jFn;
+            trackByIdFn = trackByIdExpFn || trackByIdObjFn;
             // if object, extract keys, in enumeration order, unsorted
             collectionKeys = [];
             for (var itemKey in collection) {
